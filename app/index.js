@@ -8,12 +8,15 @@ export default function Page() {
     const [name, onChangeName] = React.useState("");
     const [noun, onChangeNoun] = React.useState("");
     const [event, onChangeEvent] = React.useState("");
-    const clearInputs = () => {onChangeName(""); onChangeNoun(""); onChangeEvent("");
+    const clearInputs = () => { onChangeName(""); onChangeNoun(""); onChangeEvent("");
+        
     };
     return (
         <View style={Styles.page} >
-            <Text>Mad Libs </Text>
-            <Text>How to Play Mad Libs Hall Pass: Fill in the Blanks For the Hall Pass </Text>
+            <Text style={Styles.title}>MAD LIBS </Text>
+            <View style={Styles.space} />
+            <Text style={Styles.text }>How to Play Mad Libs Hall Pass: Fill in the Blanks For the Hall Pass. </Text>
+            <View style={Styles.space} />
             <SafeAreaView>
                 <TextInput
                 style={Styles.input}
@@ -40,15 +43,14 @@ export default function Page() {
                 style={Styles.button}
                 href={{
                     pathname: "/page2",
-                    params: { name },
-                    params: { noun },
-                    params: { event }
+                    params: { name, noun, event },
                 }} asChild
             >
                 <Pressable >
                     <Text>Make Hall Pass</Text>
                 </Pressable>
             </Link>
+            <View style={Styles.space} />
                 <Pressable style={Styles.clearButton} onPress={clearInputs}>
                     <Text>Clear</Text>
                 </Pressable>
